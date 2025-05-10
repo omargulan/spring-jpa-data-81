@@ -15,11 +15,12 @@ public class Film {
 
     private String title;
 
-    private double rating;
+    private Double rating;
 
     private String genre;
 
-    private int releaseYear;
+    @Column(name="release_year")
+    private Integer releaseYear;
 
-    private int mpa;
+    private Integer mpa;
 }

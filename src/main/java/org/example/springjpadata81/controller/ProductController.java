@@ -40,8 +40,12 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
-    @GetMapping("/search")
-    List<Product> findByName(@RequestParam String name){
-        return productRepository.findByNameContainingIgnoreCase(name);
-    }
+//    @GetMapping("/search")
+//    List<Product> findByName(@RequestParam String name){
+//        return productRepository.findByNameContainingIgnoreCase(name);
+//    }
+        @GetMapping("/search")
+       public List<Product> findByName(@RequestParam String valueName){
+            return productRepository.findByValues_Name(valueName);
+        }
 }
