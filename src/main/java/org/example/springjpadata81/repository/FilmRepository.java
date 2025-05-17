@@ -1,6 +1,9 @@
 package org.example.springjpadata81.repository;
 
 import org.example.springjpadata81.model.Film;
+import org.example.springjpadata81.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -20,6 +23,8 @@ public interface FilmRepository  extends JpaRepository<Film, Long> {
              and (:maxRating is null or f.rating <=:maxRating)
              and (:genre is null or f.genre = :genre)""")
     List<Film> search(String title, Integer mpa, Double minRating, Double maxRating, String genre);
+    @Query("select f from Film f where :")
+    Page<Film> findBy(Pageable pageable);
 
 
 }
